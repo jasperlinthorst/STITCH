@@ -82,10 +82,10 @@ std::tuple<std::vector<int>, std::vector<std::string>, std::string, std::string,
 
 std::tuple<std::vector<std::string>, std::vector<std::string>, std::vector<int>, std::vector<int>, std::vector<std::string>, std::vector<int>, std::vector<std::string>, std::vector<std::string>> get_reads_from_seqLib(std::string region, std::string file_name, std::string reference = "") {
     SeqLib::BamReader reader;
-    reader.Open(file_name);
     if (reference != "") {
         reader.SetCramReference(reference);
     }
+    reader.Open(file_name);
     SeqLib::GenomicRegion gr(region, reader.Header());
     reader.SetRegion(gr);
     SeqLib::BamRecord record;
@@ -124,10 +124,10 @@ std::tuple<std::vector<int>, std::vector<int>, std::vector<int>, std::vector<int
     // initialize SeqLib stuff
     //
     SeqLib::BamReader reader;
-    reader.Open(file_name);
     if (reference != "") {
         reader.SetCramReference(reference);
     }
+    reader.Open(file_name);
     SeqLib::GenomicRegion gr(region, reader.Header());
     reader.SetRegion(gr);
     SeqLib::BamRecord record;
